@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de prestamo de equipos</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <header class="encabezado">
+    <h1>Control de prestamo de equipos</h1>
+    <p class="descripcion">Laboratorio de computo. Registro de entrega y devolucion.</p>
+  </header>
+
+  <main class="contenido">
+
+    <section class="panel">
+      <h2>Registrar prestamo</h2>
+
+      <div class="formulario">
+        <div class="campo">
+          <label for="entrada-estudiante">Estudiante</label>
+          <input type="text" id="entrada-estudiante" maxlength="40" autocomplete="off"
+                 placeholder="Nombre completo">
+        </div>
+
+        <div class="campo">
+          <label for="seleccion-equipo">Equipo</label>
+          <select id="seleccion-equipo">
+            <option value="">Seleccione un equipo</option>
+            <option value="Portatil Lenovo 14">Portatil Lenovo 14</option>
+            <option value="Proyector Epson X05">Proyector Epson X05</option>
+            <option value="Camara web Logitech">Camara web Logitech</option>
+            <option value="Tablero digital">Tablero digital</option>
+            <option value="Kit Arduino Uno">Kit Arduino Uno</option>
+          </select>
+        </div>
+
+        <button type="button" id="boton-prestar" class="boton-principal">Prestar</button>
+      </div>
+
+      <p class="mensaje" id="mensaje" role="alert"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Resumen</h2>
+      <div class="resumen">
+        <article class="indicador">
+          <p class="indicador-valor" id="total-prestamos">0</p>
+          <p class="indicador-titulo">Prestamos registrados</p>
+        </article>
+        <article class="indicador">
+          <p class="indicador-valor texto-pendiente" id="total-pendientes">0</p>
+          <p class="indicador-titulo">Sin devolver</p>
+        </article>
+        <article class="indicador">
+          <p class="indicador-valor texto-devuelto" id="total-devueltos">0</p>
+          <p class="indicador-titulo">Devueltos</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Prestamos</h2>
+
+      <div class="filtros" id="contenedor-filtros">
+        <button type="button" class="filtro activo" data-estado="todos">Todos</button>
+        <button type="button" class="filtro" data-estado="pendiente">Sin devolver</button>
+        <button type="button" class="filtro" data-estado="devuelto">Devueltos</button>
+      </div>
+
+      <p class="sin-registros" id="sin-registros">No hay prestamos registrados.</p>
+
+      <ul class="listado" id="listado"></ul>
+
+      <button type="button" id="boton-limpiar" class="boton-secundario">
+        Retirar los prestamos devueltos
+      </button>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p>Unidades Tecnologicas de Santander. Asignatura Programacion Web.</p>
+  </footer>
+
+</body>
+</html>
